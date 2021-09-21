@@ -1,6 +1,12 @@
 .App {
   text-align: center;
+  font-size: 50px;
 }
+.Contador {
+  align-items: center;
+  text-align: center;
+  image-resolution: 20px;
+ }
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +42,4 @@
     transform: rotate(360deg);
   }
 }
+
