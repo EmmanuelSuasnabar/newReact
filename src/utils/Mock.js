@@ -4,6 +4,7 @@ import cadenas from '../images/cadenas.jpg'
 import pulceras from '../images/pulceras.jpg'
 
 
+
 const joyas = [
     {id:1, nombre:"Aros", picture: aros  },
     {id:2, nombre: "Anillos", picture: anillo },
@@ -27,17 +28,14 @@ export const getFetch = new Promise((res, rej) => {
 });
 
 
-const joya = {
-    id: 2, 
-    nombre: "Anillo", 
-    picture: anillo 
-}
+const Unajoya = {id:2, nombre: "Anillos", picture: anillo, caracteristica:"plata 925"}
 
-export const getFetchOne = new Promise((res, rej) => {
-    let data = '200'
-    if (data === '200') {
+
+export const getFetchUno = new Promise((res, rej) => {
+    let respuesta = '200'
+    if (respuesta === '200') {
         setTimeout(() => {
-            res(joya)
+            res(Unajoya)
         }, 3000)
     } else {
         rej('404')

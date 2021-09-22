@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
-import { getFetch } from '../utils/Mock'
-import ItemCount from "./ItemCount"
-import ItemList from './ItemList/ItemList'
+import { getFetch } from '../../utils/Mock'
+import ItemCount from "../ItemCount"
+import ItemList from '../ItemList/ItemList'
 
 
 const ItemListContainer = (props) => {
@@ -20,7 +20,7 @@ const ItemListContainer = (props) => {
         .catch(error => console.log(error))
         .finally(()=> setLoading(false))
 
-    })
+    },[])
 
     return (
         <div className='Contador'>

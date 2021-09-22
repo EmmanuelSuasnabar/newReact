@@ -7,6 +7,10 @@
   text-align: center;
   image-resolution: 20px;
  }
+ .detail {
+   align-items: center;
+   text-align: center;
+ }
 
 .App-logo {
   height: 40vmin;
