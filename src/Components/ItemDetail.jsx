@@ -1,12 +1,19 @@
+import {useState} from 'react'
 import ItemCount from '../Components/ItemCount'
 
+
 const ItemDetail = ({item}) => {
+
+    const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0)
+
     const onAdd = (cant) =>{
         console.log(cant)
+        setCantidadSeleccionada(cant)
     }
     return (
         <>
-            <>
+       
+            
         <div key={item.id} className='card w-50 mt-3'>
         </div>
        
@@ -23,8 +30,8 @@ const ItemDetail = ({item}) => {
           <ItemCount stock={8} initial={1} onAdd={onAdd}/>
         
 
-        </>
         
+       
         </>
     )
 }

@@ -20,9 +20,10 @@ const ItemDetailContainer = () => {
    .catch((err)=> console.error(err))
    },[id])
     return (
-        <> { 
+        <> 
+         {    
          item && <ItemDetail className='detail' item = {item[0]} />
-           }
+         }  
         </>
     )
 }
