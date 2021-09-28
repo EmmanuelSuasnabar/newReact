@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 
 const Item = ({joya}) => {
     return (
@@ -15,7 +15,9 @@ const Item = ({joya}) => {
           </div>
           
            <div className="card-footer" >
+              <Link to={`/detalle/${joya.id}`}>
               <button className="btn btn-outline-primary btn-block" > Detalles </button>
+              </Link>  
           </div> 
         </>
           

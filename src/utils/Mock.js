@@ -6,10 +6,14 @@ import pulceras from '../images/pulceras.jpg'
 
 
 const joyas = [
-    {id:1, nombre:"Aros", picture: aros  },
-    {id:2, nombre: "Anillos", picture: anillo },
-    {id:3, nombre: "Cadenas", picture: cadenas },
-    {id:4, nombre: "Pulceras" ,picture: pulceras},
+    {id:1, categoria:"plata", nombre:"Aros", picture: aros  },
+    {id:2, categoria:"plata", nombre: "Anillos", picture: anillo },
+    {id:3, categoria:"plata", nombre: "Cadenas", picture: cadenas },
+    {id:4, categoria:"plata", nombre: "Pulceras" ,picture: pulceras}, 
+    {id:5, categoria:"oro", nombre:"Aros", picture: aros  },
+    {id:6, categoria:"oro", nombre: "Anillos", picture: anillo },
+    {id:7, categoria:"oro", nombre: "Cadenas", picture: cadenas },
+    {id:8, categoria:"oro", nombre: "Pulceras" ,picture: pulceras}, 
 ]
 
 export const getFetch = new Promise((res, rej) => {
@@ -28,14 +32,14 @@ export const getFetch = new Promise((res, rej) => {
 });
 
 
-const Unajoya = {id:2, nombre: "Anillos", picture: anillo, caracteristica:"plata 925"}
-
+//const Unajoya = {id:2, nombre: "Anillos", picture: anillo, caracteristica:"plata 925"}
+const joya2 = joyas.filter((joya)=>joya.id===2)
 
 export const getFetchUno = new Promise((res, rej) => {
     let respuesta = '200'
     if (respuesta === '200') {
         setTimeout(() => {
-            res(Unajoya)
+            res(joya2)
         }, 3000)
     } else {
         rej('404')

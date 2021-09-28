@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   font-size: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  
 }
 .Contador {
   align-items: center;
@@ -8,8 +11,10 @@
   image-resolution: 20px;
  }
  .detail {
+   
    align-items: center;
    text-align: center;
+   
  }
 
 .App-logo {

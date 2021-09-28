@@ -1,6 +1,9 @@
-
+import ItemCount from '../Components/ItemCount'
 
 const ItemDetail = ({item}) => {
+    const onAdd = (cant) =>{
+        console.log(cant)
+    }
     return (
         <>
             <>
@@ -8,15 +11,18 @@ const ItemDetail = ({item}) => {
         </div>
        
 
-          <div className='card-header'>Nuevo anillo {item.caracteristica}</div>
+          <div className='card-header'> Detalle {item.caracteristica}</div>
           <div className='card-body'>
               <img className="img-fluid" src={item.picture} alt='picture' />
               
           </div>
-          
+         
            <div className="card-footer" >
               <button className="btn btn-outline-primary btn-block" > Detalles </button>
           </div> 
+          <ItemCount stock={8} initial={1} onAdd={onAdd}/>
+        
+
         </>
         
         </>
