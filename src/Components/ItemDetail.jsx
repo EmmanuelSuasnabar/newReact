@@ -1,15 +1,20 @@
 import {useState} from 'react'
 import ItemCount from '../Components/ItemCount'
-
+import { useCartContext } from '../context/cartContext'
 
 const ItemDetail = ({item}) => {
 
-    const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0)
+const [{/*cantidadSeleccionada*/}, setCantidadSeleccionada] = useState(0)
 
+    
+    const {addToCart} = useCartContext()
+    
     const onAdd = (cant) =>{
         console.log(cant)
-        setCantidadSeleccionada(cant)
+        //setCantidadSeleccionada(cant)
+        addToCart({item: item,cantidad:cant})
     }
+    
     return (
         <>
        
@@ -25,7 +30,7 @@ const ItemDetail = ({item}) => {
           </div>
          
            <div className="card-footer" >
-              <button className="btn btn-outline-primary btn-block" > Detalles </button>
+              {/*<button className="btn btn-outline-primary btn-block" > </button>*/}
           </div> 
           <ItemCount stock={8} initial={1} onAdd={onAdd}/>
         

@@ -5,13 +5,15 @@ import  NavBar  from './Components/NavBar';
 import ItemListContainer from './Components/container/ItemListContainer';
 import ItemDetailContainer from './Components/container/ItemDetailContainer';
 import Cart from './Components/cart/Cart'
-
+import CartContextProvider from './context/cartContext'
 
 
 
 function App() {
   return (
-  <BrowserRouter> 
+  <CartContextProvider>  
+   
+    <BrowserRouter> 
     <>
       <NavBar />
       <Switch>
@@ -26,7 +28,10 @@ function App() {
       <Route exact path= '/cart'component={Cart} />
       </Switch>
     </>
-  </BrowserRouter>   
+    </BrowserRouter> 
+
+  </CartContextProvider> 
+   
   );
 }
 
