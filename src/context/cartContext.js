@@ -11,18 +11,27 @@ export default function CartContextProvider ({children}) {
       //  setCartList([...cartList, item])
     //}
     const addToCart = (data) => {
-        let previousCart = [...cartList]
-        if (previousCart.some(i => i.item.id === data.item.id)) {
-            previousCart.find(i => i.item.id === data.item.id).cantidad += data.cantidad
-            setCartList(previousCart)
+        let carritoPrevio = [...cartList]
+        if (carritoPrevio.some(i => i.item.id === data.item.id)) {
+            carritoPrevio.find(i => i.item.id === data.item.id).cantidad += data.cantidad
+            setCartList(carritoPrevio)
         } else {
             setCartList([...cartList, data])
 
         }
     }
 
-    function borrarLista() {
-        cartList([])
+    const borrarLista = (item) => {
+        const productoBorrado = cartList.filter((prod) => prod.item.id !== prod.item.id)
+        setCartList([...productoBorrado])
+    }
+
+    const iconoCarrito = () => {
+        return cartList.reduce((acum,item)=> acum + item.cantidad, 0)
+    }
+
+    const precioTotal =()=>{
+        return cartList.reduce((acum,item)=>(acum + (item.cantidad * item.item.price)), 0)
     }
 
     console.log(cartList)
@@ -30,6 +39,8 @@ export default function CartContextProvider ({children}) {
         <cartContext.Provider value={{
             cartList,
             addToCart,
+            iconoCarrito,
+            precioTotal,
             borrarLista
         }}>
             {children}

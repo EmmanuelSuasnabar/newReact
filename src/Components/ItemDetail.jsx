@@ -10,7 +10,7 @@ const [{/*cantidadSeleccionada*/}, setCantidadSeleccionada] = useState(0)
     const {addToCart} = useCartContext()
     
     const onAdd = (cant) =>{
-        console.log(cant)
+       // console.log(cant)
         //setCantidadSeleccionada(cant)
         addToCart({item: item,cantidad:cant})
     }
