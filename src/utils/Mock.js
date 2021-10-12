@@ -2,18 +2,20 @@ import aros from '../images/aros.jpg'
 import anillo from '../images/anillo.jpg'
 import cadenas from '../images/cadenas.jpg'
 import pulceras from '../images/pulceras.jpg'
-
-
+import arosOro from '../images/arosOro.jpg'
+import anillosOro from '../images/anillosOro.jpg'
+import cadenasOro from '../images/collaresOro.jpg'
+import pulcerasOro from '../images/pulcerasOro.jpg'
 
 const joyas = [
     {id:1, categoria:"plata", nombre:"Aros", picture: aros  },
     {id:2, categoria:"plata", nombre: "Anillos", picture: anillo },
     {id:3, categoria:"plata", nombre: "Cadenas", picture: cadenas },
     {id:4, categoria:"plata", nombre: "Pulceras" ,picture: pulceras}, 
-    {id:5, categoria:"oro", nombre:"Aros", picture: aros  },
-    {id:6, categoria:"oro", nombre: "Anillos", picture: anillo },
-    {id:7, categoria:"oro", nombre: "Cadenas", picture: cadenas },
-    {id:8, categoria:"oro", nombre: "Pulceras" ,picture: pulceras}, 
+    {id:5, categoria:"oro", nombre:"Aros", picture: arosOro  },
+    {id:6, categoria:"oro", nombre: "Anillos", picture: anillosOro },
+    {id:7, categoria:"oro", nombre: "Cadenas", picture: cadenasOro },
+    {id:8, categoria:"oro", nombre: "Pulceras" ,picture: pulcerasOro}, 
 ]
 
 export const getFetch = new Promise((res, rej) => {

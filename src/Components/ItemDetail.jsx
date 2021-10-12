@@ -4,7 +4,7 @@ import { useCartContext } from '../context/cartContext'
 
 const ItemDetail = ({item}) => {
 
-const [{/*cantidadSeleccionada*/}, setCantidadSeleccionada] = useState(0)
+//const [{/*cantidadSeleccionada*/}, setCantidadSeleccionada] = useState(0)
 
     
     const {addToCart} = useCartContext()
@@ -23,7 +23,7 @@ const [{/*cantidadSeleccionada*/}, setCantidadSeleccionada] = useState(0)
         </div>
        
 
-          <div className='card-header'> Detalle {item.caracteristica}</div>
+          <div className='card-header'> Detalle {item.descripcion}</div>
           <div className='card-body'>
               <img className="img-fluid" src={item.picture} alt='picture' />
               

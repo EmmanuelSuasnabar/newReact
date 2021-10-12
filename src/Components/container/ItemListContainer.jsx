@@ -1,7 +1,9 @@
 import {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom"
-import { getFetch } from '../../utils/Mock'
+import { getFirestore } from '../../services/getFirebase'
+
 import ItemList from '../ItemList/ItemList'
+
 
 
 
@@ -13,32 +15,60 @@ const ItemListContainer = (props) => {
 
     useEffect(()=>{
 
-        if(idCategoria){
-            getFetch.then(respuesta =>{
-                setJoyas(respuesta.filter(prod => prod.categoria===idCategoria))
-            })
-            .catch(error => console.log(error))
-            .finally(()=> setLoading(false))
+        if (idCategoria) {
 
-        }else{
-            getFetch.then(respuesta =>{
-                setJoyas(respuesta)
-            })
-            .catch(error => console.log(error))
-            .finally(()=> setLoading(false))
+             const dbQuery = getFirestore()
+             dbQuery.collection('joyas').where('categoria','==',idCategoria).get()
+             .then (respuesta => {
+                 setJoyas(respuesta.docs.map(joya => ({id: joya.id, ...joya.data()})))
+             })
+             .catch (error => console.log(error))
+             .finally (()=> setLoading(false))
+            
+        } else {
 
+            const dbQuery = getFirestore()
+            dbQuery.collection('joyas').get()
+            .then (respuesta => {
+                setJoyas(respuesta.docs.map(joya => ({id: joya.id, ...joya.data()})))
+            })
+            .catch (error => console.log(error))
+            .finally (()=> setLoading(false))
+            
         }
+
+
+
+
+
+
+        // if(idCategoria){
+        //     getFetch.then(respuesta =>{
+        //         setJoyas(respuesta.filter(prod => prod.categoria===idCategoria))
+        //     })
+        //     .catch(error => console.log(error))
+        //     .finally(()=> setLoading(false))
+
+        // }else{
+        //     getFetch.then(respuesta =>{
+        //         setJoyas(respuesta)
+        //     })
+        //     .catch(error => console.log(error))
+        //     .finally(()=> setLoading(false))
+
+       // }
        
 
     },[idCategoria])
-    console.log(idCategoria)   
-    return (
-        <div className='Contador'>
-            <h1>{props.saludo}</h1>
-            { loading ? <h2>Cargando...</h2> : <ItemList joyas={joyas} />}
+       
+    console.log(joyas)
+     return (
+         <div className='Contador'>
+             <h1>{props.saludo}</h1>
+             { loading ? <h2>Cargando...</h2> : <ItemList joyas={joyas} />}
             
-        </div>
-    )
+         </div>
+     )
 }
 
 export default ItemListContainer
