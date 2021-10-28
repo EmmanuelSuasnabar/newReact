@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom"
 import { getFirestore } from '../../services/getFirebase'
-
 import ItemList from '../ItemList/ItemList'
 
 
@@ -19,8 +18,8 @@ const ItemListContainer = (props) => {
 
              const dbQuery = getFirestore()
              dbQuery.collection('joyas').where('categoria','==',idCategoria).get()
-             .then (respuesta => {
-                 setJoyas(respuesta.docs.map(joya => ({id: joya.id, ...joya.data()})))
+             .then (resp => {
+                 setJoyas(resp.docs.map(joya => ({id: joya.id, ...joya.data()})))
              })
              .catch (error => console.log(error))
              .finally (()=> setLoading(false))
@@ -29,8 +28,8 @@ const ItemListContainer = (props) => {
 
             const dbQuery = getFirestore()
             dbQuery.collection('joyas').get()
-            .then (respuesta => {
-                setJoyas(respuesta.docs.map(joya => ({id: joya.id, ...joya.data()})))
+            .then (resp => {
+                setJoyas(resp.docs.map(joya => ({id: joya.id, ...joya.data()})))
             })
             .catch (error => console.log(error))
             .finally (()=> setLoading(false))

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+
 import ItemCount from '../Components/ItemCount'
 import { useCartContext } from '../context/cartContext'
 
@@ -30,8 +30,9 @@ const ItemDetail = ({item}) => {
           </div>
          
            <div className="card-footer" >
-              {/*<button className="btn btn-outline-primary btn-block" > </button>*/}
+              <button className="btn btn-outline-primary btn-block" > Comprar </button>
           </div> 
+         
           <ItemCount stock={8} initial={1} onAdd={onAdd}/>
         
 

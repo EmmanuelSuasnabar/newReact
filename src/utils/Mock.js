@@ -35,7 +35,7 @@ export const getFetch = new Promise((res, rej) => {
 
 
 //const Unajoya = {id:2, nombre: "Anillos", picture: anillo, caracteristica:"plata 925"}
-const joya2 = joyas.filter((joya)=>joya.id===2)
+//const joya2 = joyas.filter((joya)=>joya.id===2)
 
 export const getFetchUno = new Promise((res, rej) => {
     let respuesta = '200'
